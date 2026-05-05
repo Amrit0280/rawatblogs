@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  --font-inter: "Inter", "Segoe UI", Arial;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --background: #f8fafc;
+  --foreground: #101827;
+  --card: #ffffff;
+  --muted: #eef3f8;
+  --muted-foreground: #64748b;
+  --border: #dbe4ef;
+  --primary: #0f2742;
+  --primary-foreground: #ffffff;
+  --accent: #c79a2b;
+  --accent-soft: #f8edd3;
+  --sky: #38a9e8;
+  --danger: #b42318;
+}
+
+.dark {
+  --background: #07111f;
+  --foreground: #f8fafc;
+  --card: #0e1a2b;
+  --muted: #14243a;
+  --muted-foreground: #9fb0c4;
+  --border: #243852;
+  --primary: #d8e6f7;
+  --primary-foreground: #07111f;
+  --accent: #e1b954;
+  --accent-soft: #2e2718;
+  --sky: #67c6f6;
+  --danger: #ff8f86;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: var(--accent-soft);
+}
+
+.editorial {
+  font-family: var(--font-serif), Georgia, serif;
+}
+
+.container-shell {
+  width: min(1180px, calc(100vw - 32px));
+  margin-inline: auto;
+}
+
+.prose-content {
+  color: var(--foreground);
+  font-size: 1.075rem;
+  line-height: 1.85;
+}
+
+.prose-content p {
+  margin: 0 0 1.25rem;
+}
+
+.prose-content h2 {
+  margin: 2.25rem 0 1rem;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  line-height: 1.15;
+}
+
+.reading-progress {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 3px;
+  background: var(--accent);
+  width: var(--progress, 0%);
+  z-index: 80;
+}
+
+.focus-ring:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--sky) 60%, transparent);
+  outline-offset: 2px;
+}
