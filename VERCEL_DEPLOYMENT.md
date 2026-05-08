@@ -16,7 +16,8 @@ This project is ready for Vercel as a Next.js application with Prisma and Supaba
 Add these in Vercel Project Settings > Environment Variables for Production, Preview, and Development as needed:
 
 ```bash
-DATABASE_URL="postgresql://postgres:URL_ENCODED_PASSWORD@HOST:5432/postgres"
+DATABASE_URL="postgresql://USER:PASSWORD@HOST/DATABASE?sslmode=require"
+DIRECT_URL="postgresql://USER:PASSWORD@HOST/DATABASE?sslmode=require"
 AUTH_URL="https://your-domain.com"
 NEXTAUTH_URL="https://your-domain.com"
 AUTH_SECRET="generate-with-openssl-rand-base64-32"
@@ -27,7 +28,7 @@ NEXT_PUBLIC_SITE_URL="https://your-domain.com"
 NEXT_PUBLIC_SITE_NAME="KK Rawat"
 ```
 
-Use the URL-encoded database password. Reserved characters such as `?`, `@`, `%`, and `*` must be encoded inside the password segment.
+For Render PostgreSQL, use the External Database URL for both `DATABASE_URL` and `DIRECT_URL`, and add `?sslmode=require` if it is not already present. Reserved characters such as `?`, `@`, `%`, and `*` must be encoded inside the password segment.
 
 ## Database Deployment
 

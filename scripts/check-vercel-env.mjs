@@ -1,5 +1,6 @@
 const required = [
   "DATABASE_URL",
+  "DIRECT_URL",
   "AUTH_URL",
   "NEXTAUTH_URL",
   "AUTH_SECRET",
