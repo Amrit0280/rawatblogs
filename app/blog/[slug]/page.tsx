@@ -13,6 +13,8 @@ import { Badge } from "@/components/ui/badge";
 import { getPostBySlug, getRelatedPosts } from "@/lib/data";
 import { trackView } from "@/lib/actions";
 import { absoluteUrl, initials } from "@/lib/utils";
+import { GoogleAd } from "@/components/google-ad";
+
 
 export const dynamic = "force-dynamic";
 
@@ -142,18 +144,24 @@ export default async function SinglePostPage({ params }: { params: Promise<{ slu
               </div>
             </aside>
             <div className="prose-content">
-              {contentBlocks(post.content).map((block) => {
-                if (block.startsWith("## ")) {
+              {contentBlocks(post.content).map((block, index) => {
+                const isMiddle = index === Math.floor(contentBlocks(post.content).length / 2);
+                const blockElement = block.startsWith("## ") ? (() => {
                   const title = block.replace(/^##\s+/, "");
                   const id = title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-                  return (
-                    <h2 key={block} id={id}>
-                      {title}
-                    </h2>
-                  );
-                }
-                return <p key={block}>{block}</p>;
+                  return <h2 key={block} id={id}>{title}</h2>;
+                })() : <p key={block}>{block}</p>;
+
+                return (
+                  <>
+                    {blockElement}
+                    {isMiddle && <GoogleAd slot="2468101214" className="my-10" />}
+                  </>
+                );
               })}
+              
+              {/* Google Ad - Article End */}
+              <GoogleAd slot="1357911131" className="mt-12" />
               <section className="mt-12 border-t border-[var(--border)] pt-8">
                 <div className="flex items-start gap-4">
                   <div className="grid h-12 w-12 shrink-0 place-items-center rounded-md bg-[var(--primary)] font-semibold text-[var(--primary-foreground)]">

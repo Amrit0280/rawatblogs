@@ -30,6 +30,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </ThemeProvider>
         <Script
           async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3506540593942025"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+        <Script
+          async
           src="https://www.googletagmanager.com/gtag/js?id=G-XJ03M4YSHH"
         />
         <Script id="google-analytics">

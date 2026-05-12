@@ -8,6 +8,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { getArchive } from "@/lib/data";
+import { GoogleAd } from "@/components/google-ad";
+
 
 export const dynamic = "force-dynamic";
 
@@ -88,6 +90,9 @@ export default async function BlogPage({
             ) : null}
           </div>
         </div>
+        
+        {/* Google Ad - Blog Archive Bottom */}
+        <GoogleAd slot="5555566666" className="mt-12" />
       </main>
       <SiteFooter />
     </>

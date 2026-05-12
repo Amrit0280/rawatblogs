@@ -8,6 +8,8 @@ import { FadeIn } from "@/components/fade-in";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { getHomepage } from "@/lib/data";
+import { GoogleAd } from "@/components/google-ad";
+
 
 export const dynamic = "force-dynamic";
 
@@ -90,6 +92,9 @@ export default async function HomePage() {
               <PostCard key={post.id} post={post} priority={index === 0} />
             ))}
           </FadeIn>
+
+          {/* Google Ad - Featured Posts Bottom */}
+          <GoogleAd slot="1234567890" className="mt-12" />
         </section>
 
         <section className="border-y border-[var(--border)] bg-[var(--card)] py-16">
@@ -173,6 +178,9 @@ export default async function HomePage() {
               <NewsletterForm />
             </div>
           </div>
+
+          {/* Google Ad - Homepage Bottom */}
+          <GoogleAd slot="0987654321" className="mt-12" />
         </section>
       </main>
       <SiteFooter />
