@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "sonner";
+import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -27,6 +28,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
           <Toaster richColors position="top-right" />
         </ThemeProvider>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-XJ03M4YSHH"
+        />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-XJ03M4YSHH');
+          `}
+        </Script>
       </body>
     </html>
   );
